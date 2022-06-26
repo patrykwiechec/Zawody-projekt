@@ -130,6 +130,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\trenerzy.datasource" />
+    <None Include="Properties\DataSources\uczestnictwo.datasource" />
+    <None Include="Properties\DataSources\zawodnicy.datasource" />
+    <None Include="Properties\DataSources\zawody.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
