@@ -8,15 +8,7 @@
         Title="Projekt" Height="600" Width="800">
 
     <Grid>
-        <Button Content="Zawody" HorizontalAlignment="Left" Height="118" Margin="10,432,0,0" VerticalAlignment="Top" Width="170" BorderBrush="Black" BorderThickness="2,2,2,2" FontWeight="Bold" FontStyle="Italic" FontSize="20" FontFamily="Times New Roman">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF830AEC" Offset="1"/>
-                    <GradientStop Color="#FF34065B" Offset="0"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button Content="Uczestnictwo" HorizontalAlignment="Left" Height="118" Margin="215,432,0,0" VerticalAlignment="Top" Width="170" BorderBrush="Black" BorderThickness="2,2,2,2" FontWeight="Bold" FontStyle="Italic" FontSize="20" FontFamily="Times New Roman">
+        <Button Content="Uczestnictwo" HorizontalAlignment="Left" Height="118" Margin="205,432,0,0" VerticalAlignment="Top" Width="170" BorderBrush="Black" BorderThickness="2,2,2,2" FontWeight="Bold" FontStyle="Italic" FontSize="20" FontFamily="Times New Roman">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF830AEC" Offset="1"/>
@@ -32,7 +24,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Trenerzy" HorizontalAlignment="Left" Height="118" Margin="420,432,0,0" VerticalAlignment="Top" Width="170" BorderBrush="Black" BorderThickness="2,2,2,2" FontWeight="Bold" FontStyle="Italic" FontSize="20" FontFamily="Times New Roman">
+        <Button Content="Trenerzy" HorizontalAlignment="Left" Height="118" Margin="400,432,0,0" VerticalAlignment="Top" Width="170" BorderBrush="Black" BorderThickness="2,2,2,2" FontWeight="Bold" FontStyle="Italic" FontSize="20" FontFamily="Times New Roman">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF830AEC" Offset="1"/>
@@ -40,7 +32,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Height="118" Margin="620,432,0,0" VerticalAlignment="Top" Width="170" BorderBrush="Black" BorderThickness="2,2,2,2" FontWeight="Bold" FontStyle="Italic" FontSize="20" FontFamily="Times New Roman">
+        <Button Content="Button" HorizontalAlignment="Left" Height="118" Margin="604,432,0,0" VerticalAlignment="Top" Width="170" BorderBrush="Black" BorderThickness="2,2,2,2" FontWeight="Bold" FontStyle="Italic" FontSize="20" FontFamily="Times New Roman">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF830AEC" Offset="1"/>
@@ -48,6 +40,8 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+        <TextBox HorizontalAlignment="Left" Height="62" Margin="95,126,0,0" TextWrapping="Wrap" Text="Projekt zaliczeniowy CRUD" VerticalAlignment="Top" Width="656" TextChanged="TextBox_TextChanged" TextAlignment="Center" FontWeight="Bold" FontSize="36" BorderThickness="0,0,0,0"/>
+        <TextBox TextWrapping="Wrap" Text="Patryk Wiecheć 13355" Margin="604,22,10,500" RenderTransformOrigin="0.519,1.221" TextChanged="TextBox_TextChanged_1" FontStyle="Italic" BorderThickness="0,0,0,0"/>
 
     </Grid>
 
