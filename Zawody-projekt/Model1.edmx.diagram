@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cc636b8cc84e4de18349385d01e2d4ac" Name="Diagram1">
+        <EntityTypeShape EntityType="ZawodyModel.trenerzy" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZawodyModel.uczestnictwo" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZawodyModel.zawodnicy" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZawodyModel.zawody" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="ZawodyModel.FK__zawodnicy__id_tr__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="ZawodyModel.FK__uczestnic__id_za__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="ZawodyModel.FK__uczestnic__id_za__44FF419A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

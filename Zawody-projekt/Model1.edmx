@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ZawodyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="trenerzy">
+          <Key>
+            <PropertyRef Name="id_trenera" />
+          </Key>
+          <Property Name="id_trenera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imie_t" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="nazwisko_t" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="data_ur_t" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="uczestnictwo">
+          <Key>
+            <PropertyRef Name="id_uczestnictwa" />
+          </Key>
+          <Property Name="id_uczestnictwa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_zawodnika" Type="int" />
+          <Property Name="id_zawodow" Type="int" />
+        </EntityType>
+        <EntityType Name="zawodnicy">
+          <Key>
+            <PropertyRef Name="id_zawodnika" />
+          </Key>
+          <Property Name="id_zawodnika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imie" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="nazwisko" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="kraj" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="data_ur" Type="date" Nullable="false" />
+          <Property Name="id_trenera" Type="int" />
+        </EntityType>
+        <EntityType Name="zawody">
+          <Key>
+            <PropertyRef Name="id_zawodow" />
+          </Key>
+          <Property Name="id_zawodow" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="data_za" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__uczestnic__id_za__440B1D61">
+          <End Role="zawodnicy" Type="Self.zawodnicy" Multiplicity="0..1" />
+          <End Role="uczestnictwo" Type="Self.uczestnictwo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zawodnicy">
+              <PropertyRef Name="id_zawodnika" />
+            </Principal>
+            <Dependent Role="uczestnictwo">
+              <PropertyRef Name="id_zawodnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__uczestnic__id_za__44FF419A">
+          <End Role="zawody" Type="Self.zawody" Multiplicity="0..1" />
+          <End Role="uczestnictwo" Type="Self.uczestnictwo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zawody">
+              <PropertyRef Name="id_zawodow" />
+            </Principal>
+            <Dependent Role="uczestnictwo">
+              <PropertyRef Name="id_zawodow" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__zawodnicy__id_tr__412EB0B6">
+          <End Role="trenerzy" Type="Self.trenerzy" Multiplicity="0..1" />
+          <End Role="zawodnicy" Type="Self.zawodnicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="trenerzy">
+              <PropertyRef Name="id_trenera" />
+            </Principal>
+            <Dependent Role="zawodnicy">
+              <PropertyRef Name="id_trenera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ZawodyModelStoreContainer">
+          <EntitySet Name="trenerzy" EntityType="Self.trenerzy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="uczestnictwo" EntityType="Self.uczestnictwo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="zawodnicy" EntityType="Self.zawodnicy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="zawody" EntityType="Self.zawody" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__uczestnic__id_za__440B1D61" Association="Self.FK__uczestnic__id_za__440B1D61">
+            <End Role="zawodnicy" EntitySet="zawodnicy" />
+            <End Role="uczestnictwo" EntitySet="uczestnictwo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__uczestnic__id_za__44FF419A" Association="Self.FK__uczestnic__id_za__44FF419A">
+            <End Role="zawody" EntitySet="zawody" />
+            <End Role="uczestnictwo" EntitySet="uczestnictwo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__zawodnicy__id_tr__412EB0B6" Association="Self.FK__zawodnicy__id_tr__412EB0B6">
+            <End Role="trenerzy" EntitySet="trenerzy" />
+            <End Role="zawodnicy" EntitySet="zawodnicy" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ZawodyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="trenerzy">
+          <Key>
+            <PropertyRef Name="id_trenera" />
+          </Key>
+          <Property Name="id_trenera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imie_t" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nazwisko_t" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="data_ur_t" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="zawodnicy" Relationship="Self.FK__zawodnicy__id_tr__412EB0B6" FromRole="trenerzy" ToRole="zawodnicy" />
+        </EntityType>
+        <EntityType Name="uczestnictwo">
+          <Key>
+            <PropertyRef Name="id_uczestnictwa" />
+          </Key>
+          <Property Name="id_uczestnictwa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_zawodnika" Type="Int32" />
+          <Property Name="id_zawodow" Type="Int32" />
+          <NavigationProperty Name="zawodnicy" Relationship="Self.FK__uczestnic__id_za__440B1D61" FromRole="uczestnictwo" ToRole="zawodnicy" />
+          <NavigationProperty Name="zawody" Relationship="Self.FK__uczestnic__id_za__44FF419A" FromRole="uczestnictwo" ToRole="zawody" />
+        </EntityType>
+        <EntityType Name="zawodnicy">
+          <Key>
+            <PropertyRef Name="id_zawodnika" />
+          </Key>
+          <Property Name="id_zawodnika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="kraj" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="data_ur" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="id_trenera" Type="Int32" />
+          <NavigationProperty Name="trenerzy" Relationship="Self.FK__zawodnicy__id_tr__412EB0B6" FromRole="zawodnicy" ToRole="trenerzy" />
+          <NavigationProperty Name="uczestnictwo" Relationship="Self.FK__uczestnic__id_za__440B1D61" FromRole="zawodnicy" ToRole="uczestnictwo" />
+        </EntityType>
+        <EntityType Name="zawody">
+          <Key>
+            <PropertyRef Name="id_zawodow" />
+          </Key>
+          <Property Name="id_zawodow" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="data_za" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="uczestnictwo" Relationship="Self.FK__uczestnic__id_za__44FF419A" FromRole="zawody" ToRole="uczestnictwo" />
+        </EntityType>
+        <Association Name="FK__zawodnicy__id_tr__412EB0B6">
+          <End Role="trenerzy" Type="Self.trenerzy" Multiplicity="0..1" />
+          <End Role="zawodnicy" Type="Self.zawodnicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="trenerzy">
+              <PropertyRef Name="id_trenera" />
+            </Principal>
+            <Dependent Role="zawodnicy">
+              <PropertyRef Name="id_trenera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__uczestnic__id_za__440B1D61">
+          <End Role="zawodnicy" Type="Self.zawodnicy" Multiplicity="0..1" />
+          <End Role="uczestnictwo" Type="Self.uczestnictwo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zawodnicy">
+              <PropertyRef Name="id_zawodnika" />
+            </Principal>
+            <Dependent Role="uczestnictwo">
+              <PropertyRef Name="id_zawodnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__uczestnic__id_za__44FF419A">
+          <End Role="zawody" Type="Self.zawody" Multiplicity="0..1" />
+          <End Role="uczestnictwo" Type="Self.uczestnictwo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zawody">
+              <PropertyRef Name="id_zawodow" />
+            </Principal>
+            <Dependent Role="uczestnictwo">
+              <PropertyRef Name="id_zawodow" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ZawodyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="trenerzy" EntityType="Self.trenerzy" />
+          <EntitySet Name="uczestnictwo" EntityType="Self.uczestnictwo" />
+          <EntitySet Name="zawodnicy" EntityType="Self.zawodnicy" />
+          <EntitySet Name="zawody" EntityType="Self.zawody" />
+          <AssociationSet Name="FK__zawodnicy__id_tr__412EB0B6" Association="Self.FK__zawodnicy__id_tr__412EB0B6">
+            <End Role="trenerzy" EntitySet="trenerzy" />
+            <End Role="zawodnicy" EntitySet="zawodnicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__uczestnic__id_za__440B1D61" Association="Self.FK__uczestnic__id_za__440B1D61">
+            <End Role="zawodnicy" EntitySet="zawodnicy" />
+            <End Role="uczestnictwo" EntitySet="uczestnictwo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__uczestnic__id_za__44FF419A" Association="Self.FK__uczestnic__id_za__44FF419A">
+            <End Role="zawody" EntitySet="zawody" />
+            <End Role="uczestnictwo" EntitySet="uczestnictwo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ZawodyModelStoreContainer" CdmEntityContainer="ZawodyEntities">
+          <EntitySetMapping Name="trenerzy">
+            <EntityTypeMapping TypeName="ZawodyModel.trenerzy">
+              <MappingFragment StoreEntitySet="trenerzy">
+                <ScalarProperty Name="id_trenera" ColumnName="id_trenera" />
+                <ScalarProperty Name="imie_t" ColumnName="imie_t" />
+                <ScalarProperty Name="nazwisko_t" ColumnName="nazwisko_t" />
+                <ScalarProperty Name="data_ur_t" ColumnName="data_ur_t" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="uczestnictwo">
+            <EntityTypeMapping TypeName="ZawodyModel.uczestnictwo">
+              <MappingFragment StoreEntitySet="uczestnictwo">
+                <ScalarProperty Name="id_uczestnictwa" ColumnName="id_uczestnictwa" />
+                <ScalarProperty Name="id_zawodnika" ColumnName="id_zawodnika" />
+                <ScalarProperty Name="id_zawodow" ColumnName="id_zawodow" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="zawodnicy">
+            <EntityTypeMapping TypeName="ZawodyModel.zawodnicy">
+              <MappingFragment StoreEntitySet="zawodnicy">
+                <ScalarProperty Name="id_zawodnika" ColumnName="id_zawodnika" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="kraj" ColumnName="kraj" />
+                <ScalarProperty Name="data_ur" ColumnName="data_ur" />
+                <ScalarProperty Name="id_trenera" ColumnName="id_trenera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="zawody">
+            <EntityTypeMapping TypeName="ZawodyModel.zawody">
+              <MappingFragment StoreEntitySet="zawody">
+                <ScalarProperty Name="id_zawodow" ColumnName="id_zawodow" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="data_za" ColumnName="data_za" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
