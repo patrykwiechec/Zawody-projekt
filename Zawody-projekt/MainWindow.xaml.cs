@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 
 namespace Zawody_projekt
@@ -25,6 +26,7 @@ namespace Zawody_projekt
         {
             InitializeComponent();
         }
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 

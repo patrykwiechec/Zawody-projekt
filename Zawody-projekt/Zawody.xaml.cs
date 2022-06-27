@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Zawody_projekt
 {
@@ -22,7 +24,25 @@ namespace Zawody_projekt
         public Zawody()
         {
             InitializeComponent();
+            LoadGrid(); 
         }
+
+        //połączenie z bazą
+        SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Zawody;Integrated Security=True");
+
+        //Wypisanie tabeli
+        public void LoadGrid()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT id_zawodow as ZawodyID, nazwa as NazwaZawodów, FORMAT(data_za,'M/dd/yyyy') as DataZawodów FROM Zawody", con);
+            DataTable dt = new DataTable();
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            dt.Load(sdr);
+            con.Close();
+            datagrid.ItemsSource = dt.DefaultView;
+        }
+
+
 
         //cofnij do MainWindow
         private void Cofnij_Click(object sender, RoutedEventArgs e)

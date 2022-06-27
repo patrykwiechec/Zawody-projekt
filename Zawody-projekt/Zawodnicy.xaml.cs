@@ -11,14 +11,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+
 
 namespace Zawody_projekt
 {
     /// <summary>
     /// Interaction logic for Zawodnicy.xaml
     /// </summary>
+    /// 
     public partial class Zawodnicy : Window
     {
+
+       
         public Zawodnicy()
         {
             InitializeComponent();
@@ -40,6 +45,11 @@ namespace Zawody_projekt
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
