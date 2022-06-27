@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Zawody_projekt
 {
     /// <summary>
@@ -24,17 +25,6 @@ namespace Zawody_projekt
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -50,14 +40,11 @@ namespace Zawody_projekt
 
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Zawodnicy_Click(object sender, RoutedEventArgs e)
         {
-
+            Zawodnicy zawodnicy = new Zawodnicy();
+            zawodnicy.Show();
+            Close();
         }
     }
 }
