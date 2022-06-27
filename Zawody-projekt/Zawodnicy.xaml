@@ -19,7 +19,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <TextBox TextWrapping="Wrap" Text="Patryk Wiecheć 13355" IsReadOnly = "True" Margin="1520,10,0,954" RenderTransformOrigin="0.519,1.221" TextChanged="TextBox_TextChanged_1" FontStyle="Italic" BorderThickness="0,0,0,0" FontSize="36" FontWeight="Bold" Background="{x:Null}" Foreground="White" Width="400" Height="100"/>
+        <TextBox TextWrapping="Wrap" Text="Patryk Wiecheć 13355" IsReadOnly = "True" Margin="1520,10,0,954" RenderTransformOrigin="0.519,1.221" FontStyle="Italic" BorderThickness="0,0,0,0" FontSize="36" FontWeight="Bold" Background="{x:Null}" Foreground="White" Width="400" Height="100"/>
 
     </Grid>
 </Window>

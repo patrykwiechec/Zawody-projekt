@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Zawody_projekt
 {
     /// <summary>
-    /// Interaction logic for Zawodnicy.xaml
+    /// Interaction logic for Trenerzy.xaml
     /// </summary>
-    public partial class Zawodnicy : Window
+    public partial class Trenerzy : Window
     {
-        public Zawodnicy()
+        public Trenerzy()
         {
             InitializeComponent();
         }
@@ -32,7 +32,7 @@ namespace Zawody_projekt
         private void Cofnij_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
-            mainWindow.Show(); 
+            mainWindow.Show();
             Close();
         }
     }

@@ -46,5 +46,12 @@ namespace Zawody_projekt
             zawodnicy.Show();
             Close();
         }
+
+        private void Trenerzy_Click(object sender, RoutedEventArgs e)
+        {
+            Trenerzy trenerzy = new Trenerzy();
+            trenerzy.Show();
+            Close ();
+        }
     }
 }
