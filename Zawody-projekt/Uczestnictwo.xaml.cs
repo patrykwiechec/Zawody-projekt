@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace Zawody_projekt
 {
     /// <summary>
-    /// Interaction logic for Trenerzy.xaml
+    /// Interaction logic for Uczestnictwo.xaml
     /// </summary>
-    public partial class Trenerzy : Window
+    public partial class Uczestnictwo : Window
     {
-        public Trenerzy()
+        public Uczestnictwo()
         {
             InitializeComponent();
-        }
-
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
         }
         //cofnij do MainWindow
         private void Cofnij_Click(object sender, RoutedEventArgs e)

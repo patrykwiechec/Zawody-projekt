@@ -28,7 +28,7 @@ namespace Zawody_projekt
         {
 
         }
-
+        //cofnij do MainWindow
         private void Cofnij_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();

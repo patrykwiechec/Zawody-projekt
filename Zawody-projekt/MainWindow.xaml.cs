@@ -39,19 +39,32 @@ namespace Zawody_projekt
         {
 
         }
-
+        //Otwórz okno Zawodnicy
         private void Zawodnicy_Click(object sender, RoutedEventArgs e)
         {
             Zawodnicy zawodnicy = new Zawodnicy();
             zawodnicy.Show();
             Close();
         }
-
+        //Otwórz okno Trenerzy
         private void Trenerzy_Click(object sender, RoutedEventArgs e)
         {
             Trenerzy trenerzy = new Trenerzy();
             trenerzy.Show();
-            Close ();
+            Close();
+        }
+
+        //Otwórz okno Uczestnictwo
+        private void Uczestnictwo_Click(object sender, RoutedEventArgs e)
+        {
+            Uczestnictwo uczestnictwo = new Uczestnictwo();
+            uczestnictwo.Show();
+            Close();
+        }
+         //Otwórz okno Zawody
+        private void Zawody_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

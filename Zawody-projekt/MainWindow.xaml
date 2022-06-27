@@ -12,7 +12,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="/ITBG.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
-        <Button Content="Uczestnictwo" HorizontalAlignment="Center" Height="150" Margin="50,432,350,0" VerticalAlignment="Center" Width="300" BorderBrush="Black" BorderThickness="2,2,2,2" FontWeight="Bold" FontStyle="Italic" FontSize="36" FontFamily="Times New Roman" Foreground="White">
+        <Button Name="Zawody" Content="Zawody" HorizontalAlignment="Center" Height="150" Margin="50,432,350,0" VerticalAlignment="Center" Width="300" BorderBrush="Black" BorderThickness="2,2,2,2" FontWeight="Bold" FontStyle="Italic" FontSize="36" FontFamily="Times New Roman" Foreground="White" Click="Zawody_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF830AEC" Offset="1"/>
@@ -36,7 +36,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Name="Uczestnictwo" Content="Uczestnictwo" HorizontalAlignment="Center" Height="150" Margin="1100,432,0,0" VerticalAlignment="Center" Width="295" BorderBrush="Black" BorderThickness="2,2,2,2" FontWeight="Bold" FontStyle="Italic" FontSize="36" FontFamily="Times New Roman" Foreground="White">
+        <Button Name="Uczestnictwo" Content="Uczestnictwo" HorizontalAlignment="Center" Height="150" Margin="1100,432,0,0" VerticalAlignment="Center" Width="295" BorderBrush="Black" BorderThickness="2,2,2,2" FontWeight="Bold" FontStyle="Italic" FontSize="36" FontFamily="Times New Roman" Foreground="White" Click="Uczestnictwo_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF830AEC" Offset="1"/>

@@ -78,6 +78,9 @@
     <Compile Include="uczestnictwo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Uczestnictwo.xaml.cs">
+      <DependentUpon>Uczestnictwo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="zawodnicy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -100,6 +103,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Trenerzy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Uczestnictwo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
