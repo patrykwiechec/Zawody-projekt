@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:Zawody_projekt.Properties"
         mc:Ignorable="d"
         Title="Trenerzy" Height="1080" Width="1920"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        WindowStyle="None">
     <Grid>
         <Grid>
             <Grid.Background>
-                <ImageBrush ImageSource="/ITBG.jpg"/>
+                <ImageBrush ImageSource="/ITBG.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
             <Button x:Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Height="160" Margin="1551,845,0,0" VerticalAlignment="Top" Width="300" BorderBrush="Black" BorderThickness="2,2,2,2" FontWeight="Bold" FontStyle="Italic" FontSize="36" FontFamily="Times New Roman" Foreground="White" Click="Cofnij_Click">
                 <Button.Background>
@@ -20,9 +21,10 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <TextBox TextWrapping="Wrap" Text="Patryk Wiecheć 13355" IsReadOnly = "True" Margin="1520,10,0,954" RenderTransformOrigin="0.519,1.221" TextChanged="TextBox_TextChanged_1" FontStyle="Italic" BorderThickness="0,0,0,0" FontSize="36" FontWeight="Bold" Background="{x:Null}" Foreground="White" Width="400" Height="100"/>
+            <TextBox TextWrapping="Wrap" Text="Patryk Wiecheć 13355" IsReadOnly = "True" Margin="1301,10,219,954" RenderTransformOrigin="0.519,1.221" TextChanged="TextBox_TextChanged_1" FontStyle="Italic" BorderThickness="0,0,0,0" FontSize="36" FontWeight="Bold" Background="{x:Null}" Foreground="White" Width="400" Height="100"/>
 
         </Grid>
+        <Button x:Name="Exit" Content="X" Margin="1706,20,0,0" Width="60" Height="60" FontSize="30" RenderTransformOrigin="26.5,-5.56" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF980C0C" BorderBrush="Black" BorderThickness="8,8,8,8" FontWeight="Bold" Click="Exit_Click"/>
 
     </Grid>
 </Window>

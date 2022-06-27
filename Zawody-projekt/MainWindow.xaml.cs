@@ -64,7 +64,15 @@ namespace Zawody_projekt
          //Otwórz okno Zawody
         private void Zawody_Click(object sender, RoutedEventArgs e)
         {
+            Zawody zawody = new Zawody();
+            zawody.Show();
+            Close();
+        }
 
+        //Wyjście z aplikacji
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

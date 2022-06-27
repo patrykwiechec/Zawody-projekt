@@ -35,5 +35,11 @@ namespace Zawody_projekt
             mainWindow.Show(); 
             Close();
         }
+
+        //Wyjście z aplikacji
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }
