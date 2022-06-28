@@ -25,11 +25,6 @@ namespace Zawody_projekt
 
             TurniejeEntities db = new TurniejeEntities();
 
-            int nWidth = (int)System.Windows.SystemParameters.PrimaryScreenWidth;
-            int nHieght = (int)System.Windows.SystemParameters.PrimaryScreenHeight;
-
-            this.LayoutTransform = new ScaleTransform(nWidth / 1920, nHieght / 1080);
-
             var trenerzy = from d in db.trenerzies
                            select new
                            {
@@ -60,6 +55,26 @@ namespace Zawody_projekt
             System.Windows.Application.Current.Shutdown();
         }
 
- 
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            TurniejeEntities db = new TurniejeEntities();
+
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            TurniejeEntities db = new TurniejeEntities();
+
+            trenerzy tren = new trenerzy()
+            {
+                imie_t = Imie_t.Text,
+                nazwisko_t = Nazwisko_t.Text,
+                
+            };
+
+            db.trenerzies.Add(tren);
+            db.SaveChanges();
+        }
     }
 }
+
