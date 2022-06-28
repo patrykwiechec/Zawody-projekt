@@ -25,6 +25,10 @@ namespace Zawody_projekt
 
             TurniejeEntities db = new TurniejeEntities();
 
+            int nWidth = (int)System.Windows.SystemParameters.PrimaryScreenWidth;
+            int nHieght = (int)System.Windows.SystemParameters.PrimaryScreenHeight;
+
+            this.LayoutTransform = new ScaleTransform(nWidth / 1920, nHieght / 1080);
 
             var trenerzy = from d in db.trenerzies
                            select new
@@ -34,15 +38,6 @@ namespace Zawody_projekt
                                NazwiskoTrenera = d.nazwisko_t,
                                DataUrodzenia = d.data_ur_t
                            };
-
-            foreach (var item in trenerzy)
-            {
-                var dateString = item.DataUrodzenia.ToString("dd/MM/yyyy");
-                Console.WriteLine(item.TrenerID);
-                Console.WriteLine(item.ImięTrenera);
-                Console.WriteLine(item.NazwiskoTrenera);
-                Console.WriteLine(dateString);
-            }
 
             this.gridTrenerzy.ItemsSource = trenerzy.ToList();
         }
@@ -64,5 +59,7 @@ namespace Zawody_projekt
         {
             System.Windows.Application.Current.Shutdown();
         }
+
+ 
     }
 }

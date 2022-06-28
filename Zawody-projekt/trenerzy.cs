@@ -26,9 +26,9 @@ namespace Zawody_projekt
         public string imie_t { get; set; }
         public string nazwisko_t { get; set; }
 
-        [DataType(DataType.Date)]
         public System.DateTime data_ur_t { get; set; }
-    
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<zawodnicy> zawodnicies { get; set; }
     }
