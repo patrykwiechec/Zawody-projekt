@@ -11,9 +11,7 @@ namespace Zawody_projekt
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class trenerzy
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,10 +23,8 @@ namespace Zawody_projekt
         public int id_trenera { get; set; }
         public string imie_t { get; set; }
         public string nazwisko_t { get; set; }
-
-        public System.DateTime data_ur_t { get; set; }
-
-
+        public int ile_medali_t { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<zawodnicy> zawodnicies { get; set; }
     }

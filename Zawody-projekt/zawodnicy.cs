@@ -24,7 +24,7 @@ namespace Zawody_projekt
         public string imie { get; set; }
         public string nazwisko { get; set; }
         public string kraj { get; set; }
-        public System.DateTime data_ur { get; set; }
+        public int ile_medali_t { get; set; }
         public Nullable<int> id_trenera { get; set; }
     
         public virtual trenerzy trenerzy { get; set; }

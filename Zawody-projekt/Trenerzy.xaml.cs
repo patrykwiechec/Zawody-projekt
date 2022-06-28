@@ -23,15 +23,15 @@ namespace Zawody_projekt
         {
             InitializeComponent();
 
-            TurniejeEntities db = new TurniejeEntities();
+            TurniejEntities db = new TurniejEntities();
 
             var trenerzy = from d in db.trenerzies
                            select new
                            {
-                               TrenerID = d.id_trenera,
-                               ImięTrenera = d.imie_t,
-                               NazwiskoTrenera = d.nazwisko_t,
-                               DataUrodzenia = d.data_ur_t
+                               Trener_ID = d.id_trenera,
+                               Imię_Trenera = d.imie_t,
+                               Nazwisko_Trenera = d.nazwisko_t,
+                               Ilość_Medali = d.ile_medali_t
                            };
 
             this.gridTrenerzy.ItemsSource = trenerzy.ToList();
@@ -57,23 +57,46 @@ namespace Zawody_projekt
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            TurniejeEntities db = new TurniejeEntities();
+            TurniejEntities db = new TurniejEntities();
+
+            var trenerzy = from d in db.trenerzies
+                           select new
+                           {
+                               Trener_ID = d.id_trenera,
+                               Imię_Trenera = d.imie_t,
+                               Nazwisko_Trenera = d.nazwisko_t,
+                               Ilość_Medali = d.ile_medali_t
+                           };
+
+            this.gridTrenerzy.ItemsSource = trenerzy.ToList();
+
 
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            TurniejeEntities db = new TurniejeEntities();
+            TurniejEntities db = new TurniejEntities();
 
             trenerzy tren = new trenerzy()
             {
                 imie_t = Imie_t.Text,
                 nazwisko_t = Nazwisko_t.Text,
-                
+                ile_medali_t = Int32.Parse(Ile_medali_t.Text)
             };
 
             db.trenerzies.Add(tren);
             db.SaveChanges();
+
+            var trenerzy = from d in db.trenerzies
+                           select new
+                           {
+                               Trener_ID = d.id_trenera,
+                               Imię_Trenera = d.imie_t,
+                               Nazwisko_Trenera = d.nazwisko_t,
+                               Ilość_Medali = d.ile_medali_t
+                           };
+
+            this.gridTrenerzy.ItemsSource = trenerzy.ToList();
         }
     }
 }

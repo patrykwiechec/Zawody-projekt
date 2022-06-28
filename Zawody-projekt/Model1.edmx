@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TurniejeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="TurniejModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="trenerzy">
           <Key>
             <PropertyRef Name="id_trenera" />
@@ -12,7 +12,7 @@
           <Property Name="id_trenera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="imie_t" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="nazwisko_t" Type="varchar" MaxLength="25" Nullable="false" />
-          <Property Name="data_ur_t" Type="date" Nullable="false" />
+          <Property Name="ile_medali_t" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="uczestnictwo">
           <Key>
@@ -30,7 +30,7 @@
           <Property Name="imie" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="nazwisko" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="kraj" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="data_ur" Type="date" Nullable="false" />
+          <Property Name="ile_medali_t" Type="int" Nullable="false" />
           <Property Name="id_trenera" Type="int" />
         </EntityType>
         <EntityType Name="zawody">
@@ -39,7 +39,7 @@
           </Key>
           <Property Name="id_zawodow" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nazwa" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="data_za" Type="date" Nullable="false" />
+          <Property Name="lokalizacja" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <Association Name="FK__uczestnic__id_za__2B3F6F97">
           <End Role="zawodnicy" Type="Self.zawodnicy" Multiplicity="0..1" />
@@ -77,7 +77,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TurniejeModelStoreContainer">
+        <EntityContainer Name="TurniejModelStoreContainer">
           <EntitySet Name="trenerzy" EntityType="Self.trenerzy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="uczestnictwo" EntityType="Self.uczestnictwo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="zawodnicy" EntityType="Self.zawodnicy" Schema="dbo" store:Type="Tables" />
@@ -99,7 +99,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="TurniejeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="TurniejModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="trenerzy">
           <Key>
             <PropertyRef Name="id_trenera" />
@@ -107,7 +107,7 @@
           <Property Name="id_trenera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="imie_t" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nazwisko_t" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="data_ur_t" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ile_medali_t" Type="Int32" Nullable="false" />
           <NavigationProperty Name="zawodnicies" Relationship="Self.FK__zawodnicy__id_tr__286302EC" FromRole="trenerzy" ToRole="zawodnicy" />
         </EntityType>
         <EntityType Name="uczestnictwo">
@@ -128,7 +128,7 @@
           <Property Name="imie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nazwisko" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="kraj" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="data_ur" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ile_medali_t" Type="Int32" Nullable="false" />
           <Property Name="id_trenera" Type="Int32" />
           <NavigationProperty Name="trenerzy" Relationship="Self.FK__zawodnicy__id_tr__286302EC" FromRole="zawodnicy" ToRole="trenerzy" />
           <NavigationProperty Name="uczestnictwoes" Relationship="Self.FK__uczestnic__id_za__2B3F6F97" FromRole="zawodnicy" ToRole="uczestnictwo" />
@@ -139,7 +139,7 @@
           </Key>
           <Property Name="id_zawodow" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="data_za" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="lokalizacja" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="uczestnictwoes" Relationship="Self.FK__uczestnic__id_za__2C3393D0" FromRole="zawody" ToRole="uczestnictwo" />
         </EntityType>
         <Association Name="FK__zawodnicy__id_tr__286302EC">
@@ -178,7 +178,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TurniejeEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TurniejEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="trenerzies" EntityType="Self.trenerzy" />
           <EntitySet Name="uczestnictwoes" EntityType="Self.uczestnictwo" />
           <EntitySet Name="zawodnicies" EntityType="Self.zawodnicy" />
@@ -201,19 +201,19 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TurniejeModelStoreContainer" CdmEntityContainer="TurniejeEntities">
+        <EntityContainerMapping StorageEntityContainer="TurniejModelStoreContainer" CdmEntityContainer="TurniejEntities">
           <EntitySetMapping Name="trenerzies">
-            <EntityTypeMapping TypeName="TurniejeModel.trenerzy">
+            <EntityTypeMapping TypeName="TurniejModel.trenerzy">
               <MappingFragment StoreEntitySet="trenerzy">
                 <ScalarProperty Name="id_trenera" ColumnName="id_trenera" />
                 <ScalarProperty Name="imie_t" ColumnName="imie_t" />
                 <ScalarProperty Name="nazwisko_t" ColumnName="nazwisko_t" />
-                <ScalarProperty Name="data_ur_t" ColumnName="data_ur_t" />
+                <ScalarProperty Name="ile_medali_t" ColumnName="ile_medali_t" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="uczestnictwoes">
-            <EntityTypeMapping TypeName="TurniejeModel.uczestnictwo">
+            <EntityTypeMapping TypeName="TurniejModel.uczestnictwo">
               <MappingFragment StoreEntitySet="uczestnictwo">
                 <ScalarProperty Name="id_uczestnictwa" ColumnName="id_uczestnictwa" />
                 <ScalarProperty Name="id_zawodnika" ColumnName="id_zawodnika" />
@@ -222,23 +222,23 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="zawodnicies">
-            <EntityTypeMapping TypeName="TurniejeModel.zawodnicy">
+            <EntityTypeMapping TypeName="TurniejModel.zawodnicy">
               <MappingFragment StoreEntitySet="zawodnicy">
                 <ScalarProperty Name="id_zawodnika" ColumnName="id_zawodnika" />
                 <ScalarProperty Name="imie" ColumnName="imie" />
                 <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
                 <ScalarProperty Name="kraj" ColumnName="kraj" />
-                <ScalarProperty Name="data_ur" ColumnName="data_ur" />
+                <ScalarProperty Name="ile_medali_t" ColumnName="ile_medali_t" />
                 <ScalarProperty Name="id_trenera" ColumnName="id_trenera" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="zawodies">
-            <EntityTypeMapping TypeName="TurniejeModel.zawody">
+            <EntityTypeMapping TypeName="TurniejModel.zawody">
               <MappingFragment StoreEntitySet="zawody">
                 <ScalarProperty Name="id_zawodow" ColumnName="id_zawodow" />
                 <ScalarProperty Name="nazwa" ColumnName="nazwa" />
-                <ScalarProperty Name="data_za" ColumnName="data_za" />
+                <ScalarProperty Name="lokalizacja" ColumnName="lokalizacja" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

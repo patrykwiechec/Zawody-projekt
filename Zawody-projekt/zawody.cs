@@ -22,7 +22,7 @@ namespace Zawody_projekt
     
         public int id_zawodow { get; set; }
         public string nazwa { get; set; }
-        public System.DateTime data_za { get; set; }
+        public string lokalizacja { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<uczestnictwo> uczestnictwoes { get; set; }

@@ -27,12 +27,12 @@
                     </Button.Background>
                 </Button>
                 <TextBox TextWrapping="Wrap" Text="Patryk Wiecheć 13355" IsReadOnly = "True" Margin="1301,10,219,954" RenderTransformOrigin="0.519,1.221" TextChanged="TextBox_TextChanged_1" FontStyle="Italic" BorderThickness="0,0,0,0" FontSize="36" FontWeight="Bold" Background="{x:Null}" Foreground="White" Width="400" Height="100"/>
-                <DataGrid x:Name="gridTrenerzy" d:ItemsSource="{d:SampleData ItemCount=5}"  IsReadOnly="True" Margin="441,123,441,606" GridLinesVisibility="All" FontSize="25" FontFamily="Franklin Gothic Medium" RowHeight="64"/>
+                <DataGrid x:Name="gridTrenerzy" d:ItemsSource="{d:SampleData ItemCount=5}"  IsReadOnly="True" Margin="441,123,441,532" GridLinesVisibility="All" FontSize="25" FontFamily="Franklin Gothic Medium" RowHeight="64" ColumnWidth="Auto"/>
                 <Label Content="Nazwisko&#xD;&#xA;" HorizontalAlignment="Left" Height="99" Margin="92,686,0,0" VerticalAlignment="Top" Width="300" FontSize="35" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF7F25DE" BorderThickness="4,4,4,4" BorderBrush="Black"/>
-                <Label Content="Data urodzenia&#xD;&#xA;" HorizontalAlignment="Left" Height="99" Margin="92,826,0,0" VerticalAlignment="Top" Width="300" FontSize="35" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF7F25DE" BorderThickness="4,4,4,4" BorderBrush="Black"/>
+                <Label Content="Ilość medali&#xA;" HorizontalAlignment="Left" Height="99" Margin="92,826,0,0" VerticalAlignment="Top" Width="300" FontSize="35" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF7F25DE" BorderThickness="4,4,4,4" BorderBrush="Black"/>
                 <Label Content="Imię&#xD;&#xA;" HorizontalAlignment="Left" Height="98" Margin="92,544,0,0" VerticalAlignment="Top" Width="300" FontSize="35" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="#FF060606" Background="#FF7F25DE"/>
-                <TextBox x:Name="Imie_t" HorizontalAlignment="Left" Height="98" Margin="397,543,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="323" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black"/>
-                <TextBox x:Name="Nazwisko_t" HorizontalAlignment="Left" Height="98" Margin="397,687,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="323" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black"/>
+                <TextBox x:Name="Imie_t" HorizontalAlignment="Left" Height="98" Margin="397,543,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="323" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black"/>
+                <TextBox x:Name="Nazwisko_t" HorizontalAlignment="Left" Height="98" Margin="397,687,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="323" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black"/>
                 <Label Content="Imię&#xA;" HorizontalAlignment="Left" Height="98" Margin="92,544,0,0" VerticalAlignment="Top" Width="300" FontSize="35" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="#FF060606" Background="#FF7F25DE"/>
                 <Button x:Name="Refresh" Content="Odśwież" HorizontalAlignment="Left" Height="100" Margin="92,123,0,0" VerticalAlignment="Top" Width="300" BorderBrush="Black" BorderThickness="4,4,4,4" FontWeight="Bold" FontStyle="Italic" FontSize="36" FontFamily="Times New Roman" Foreground="White" Click="Refresh_Click">
                     <Button.Background>
@@ -50,10 +50,10 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
+                <TextBox x:Name="Ile_medali_t" HorizontalAlignment="Left" Height="98" Margin="397,826,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="323" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black"/>
 
             </Grid>
             <Button x:Name="Exit" Content="X" Margin="1706,20,0,0" Width="60" Height="60" FontSize="30" RenderTransformOrigin="26.5,-5.56" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF980C0C" BorderBrush="Black" BorderThickness="8,8,8,8" FontWeight="Bold" Click="Exit_Click"/>
-            <DatePicker x:Name="Data_urodzin_t"  HorizontalAlignment="Left" Margin="397,586,0,0" VerticalAlignment="Top"  FontSize="55" Grid.Row="1" Width="350" />
 
         </Grid>
     </Viewbox>

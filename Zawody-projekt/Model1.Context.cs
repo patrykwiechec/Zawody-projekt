@@ -13,10 +13,10 @@ namespace Zawody_projekt
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TurniejeEntities : DbContext
+    public partial class TurniejEntities : DbContext
     {
-        public TurniejeEntities()
-            : base("name=TurniejeEntities")
+        public TurniejEntities()
+            : base("name=TurniejEntities")
         {
         }
     
