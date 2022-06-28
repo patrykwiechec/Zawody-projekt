@@ -24,14 +24,14 @@ namespace Zawody_projekt
         public Zawody()
         {
             InitializeComponent();
-            LoadGrid(); 
+            //LoadGrid(); 
         }
 
         //połączenie z bazą
-        SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Zawody;Integrated Security=True");
+     //   SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Zawody;Integrated Security=True");
 
         //Wypisanie tabeli
-        public void LoadGrid()
+    /*   public void LoadGrid()
         {
             SqlCommand cmd = new SqlCommand("SELECT id_zawodow as ZawodyID, nazwa as NazwaZawodów, FORMAT(data_za,'M/dd/yyyy') as DataZawodów FROM Zawody", con);
             DataTable dt = new DataTable();
@@ -41,6 +41,8 @@ namespace Zawody_projekt
             con.Close();
            
         }
+    */
+
 
 
 
@@ -58,9 +60,6 @@ namespace Zawody_projekt
             System.Windows.Application.Current.Shutdown();
         }
 
-        private void datagrid_SelectionChanged()
-        {
-
-        }
+       
     }
 }

@@ -24,6 +24,8 @@ namespace Zawody_projekt
             InitializeComponent();
 
             TurniejeEntities db = new TurniejeEntities();
+
+
             var trenerzy = from d in db.trenerzies
                            select new
                            {
@@ -33,15 +35,13 @@ namespace Zawody_projekt
                                DataUrodzenia = d.data_ur_t
                            };
 
-            
-
             foreach (var item in trenerzy)
             {
-                DateTime data = item.DataUrodzenia;
+                var dateString = item.DataUrodzenia.ToString("dd/MM/yyyy");
                 Console.WriteLine(item.TrenerID);
                 Console.WriteLine(item.ImięTrenera);
                 Console.WriteLine(item.NazwiskoTrenera);
-                Console.WriteLine(data.ToString("dd/MM/yyyy"));
+                Console.WriteLine(dateString);
             }
 
             this.gridTrenerzy.ItemsSource = trenerzy.ToList();
