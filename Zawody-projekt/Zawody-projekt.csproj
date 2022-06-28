@@ -80,48 +80,43 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="trenerzy.cs">
-      <DependentUpon>ZawodyModel.tt</DependentUpon>
+      <DependentUpon>TurniejeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Trenerzy.xaml.cs">
       <DependentUpon>Trenerzy.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TurniejeModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TurniejeModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurniejeModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TurniejeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TurniejeModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TurniejeModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="uczestnictwo.cs">
-      <DependentUpon>ZawodyModel.tt</DependentUpon>
+      <DependentUpon>TurniejeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Uczestnictwo.xaml.cs">
       <DependentUpon>Uczestnictwo.xaml</DependentUpon>
     </Compile>
     <Compile Include="zawodnicy.cs">
-      <DependentUpon>ZawodyModel.tt</DependentUpon>
+      <DependentUpon>TurniejeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Zawodnicy.xaml.cs">
       <DependentUpon>Zawodnicy.xaml</DependentUpon>
     </Compile>
     <Compile Include="zawody.cs">
-      <DependentUpon>ZawodyModel.tt</DependentUpon>
+      <DependentUpon>TurniejeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Zawody.xaml.cs">
       <DependentUpon>Zawody.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ZawodyDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ZawodyDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ZawodyModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ZawodyModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ZawodyModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ZawodyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ZawodyModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ZawodyModel.edmx</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -175,23 +170,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="ZawodyDataSet.xsc">
-      <DependentUpon>ZawodyDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ZawodyDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ZawodyDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ZawodyDataSet.xss">
-      <DependentUpon>ZawodyDataSet.xsd</DependentUpon>
-    </None>
-    <EntityDeploy Include="ZawodyModel.edmx">
+    <EntityDeploy Include="TurniejeModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ZawodyModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>TurniejeModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ZawodyModel.edmx.diagram">
-      <DependentUpon>ZawodyModel.edmx</DependentUpon>
+    <None Include="TurniejeModel.edmx.diagram">
+      <DependentUpon>TurniejeModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -219,15 +203,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ZawodyModel.Context.tt">
+    <Content Include="TurniejeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ZawodyModel.edmx</DependentUpon>
-      <LastGenOutput>ZawodyModel.Context.cs</LastGenOutput>
+      <DependentUpon>TurniejeModel.edmx</DependentUpon>
+      <LastGenOutput>TurniejeModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="ZawodyModel.tt">
+    <Content Include="TurniejeModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ZawodyModel.edmx</DependentUpon>
-      <LastGenOutput>ZawodyModel.cs</LastGenOutput>
+      <DependentUpon>TurniejeModel.edmx</DependentUpon>
+      <LastGenOutput>TurniejeModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -22,6 +22,7 @@
                 </Button.Background>
             </Button>
             <TextBox TextWrapping="Wrap" Text="Patryk Wiecheć 13355" IsReadOnly = "True" Margin="1301,10,219,954" RenderTransformOrigin="0.519,1.221" TextChanged="TextBox_TextChanged_1" FontStyle="Italic" BorderThickness="0,0,0,0" FontSize="36" FontWeight="Bold" Background="{x:Null}" Foreground="White" Width="400" Height="100"/>
+            <DataGrid x:Name="gridTrenerzy" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="441,123,441,458"/>
 
         </Grid>
         <Button x:Name="Exit" Content="X" Margin="1706,20,0,0" Width="60" Height="60" FontSize="30" RenderTransformOrigin="26.5,-5.56" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF980C0C" BorderBrush="Black" BorderThickness="8,8,8,8" FontWeight="Bold" Click="Exit_Click"/>

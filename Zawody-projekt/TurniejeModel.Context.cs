@@ -13,10 +13,10 @@ namespace Zawody_projekt
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ZawodyEntities : DbContext
+    public partial class TurniejeEntities : DbContext
     {
-        public ZawodyEntities()
-            : base("name=ZawodyEntities")
+        public TurniejeEntities()
+            : base("name=TurniejeEntities")
         {
         }
     
@@ -25,9 +25,9 @@ namespace Zawody_projekt
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<trenerzy> trenerzy { get; set; }
-        public virtual DbSet<uczestnictwo> uczestnictwo { get; set; }
-        public virtual DbSet<zawodnicy> zawodnicy { get; set; }
-        public virtual DbSet<zawody> zawody { get; set; }
+        public virtual DbSet<trenerzy> trenerzies { get; set; }
+        public virtual DbSet<uczestnictwo> uczestnictwoes { get; set; }
+        public virtual DbSet<zawodnicy> zawodnicies { get; set; }
+        public virtual DbSet<zawody> zawodies { get; set; }
     }
 }

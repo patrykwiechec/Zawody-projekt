@@ -39,7 +39,7 @@ namespace Zawody_projekt
             SqlDataReader sdr = cmd.ExecuteReader();
             dt.Load(sdr);
             con.Close();
-            datagrid.ItemsSource = dt.DefaultView;
+           
         }
 
 
@@ -58,5 +58,9 @@ namespace Zawody_projekt
             System.Windows.Application.Current.Shutdown();
         }
 
+        private void datagrid_SelectionChanged()
+        {
+
+        }
     }
 }

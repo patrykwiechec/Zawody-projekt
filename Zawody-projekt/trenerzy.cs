@@ -10,14 +10,14 @@
 namespace Zawody_projekt
 {
     using System;
-    using System.Collections.ObjectModel;
+    using System.Collections.Generic;
     
     public partial class trenerzy
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public trenerzy()
         {
-            this.zawodnicy = new ObservableCollection<zawodnicy>();
+            this.zawodnicies = new HashSet<zawodnicy>();
         }
     
         public int id_trenera { get; set; }
@@ -26,6 +26,6 @@ namespace Zawody_projekt
         public System.DateTime data_ur_t { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableCollection<zawodnicy> zawodnicy { get; set; }
+        public virtual ICollection<zawodnicy> zawodnicies { get; set; }
     }
 }
