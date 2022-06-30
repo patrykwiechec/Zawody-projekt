@@ -55,23 +55,6 @@ namespace Zawody_projekt
             System.Windows.Application.Current.Shutdown();
         }
 
-        private void Refresh_Click(object sender, RoutedEventArgs e)
-        {
-            TurniejEntities db = new TurniejEntities();
-
-            var trenerzy = from d in db.trenerzies
-                           select new
-                           {
-                               Trener_ID = d.id_trenera,
-                               Imię_Trenera = d.imie_t,
-                               Nazwisko_Trenera = d.nazwisko_t,
-                               Ilość_Medali = d.ile_medali_t
-                           };
-
-            this.gridTrenerzy.ItemsSource = trenerzy.ToList();
-
-
-        }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
@@ -79,9 +62,9 @@ namespace Zawody_projekt
 
             trenerzy tren = new trenerzy()
             {
-                imie_t = Imie_t.Text,
-                nazwisko_t = Nazwisko_t.Text,
-                ile_medali_t = Int32.Parse(Ile_medali_t.Text)
+                imie_t = Text_Imie_t.Text,
+                nazwisko_t = Text_Nazwisko_t.Text,
+                ile_medali_t = Int32.Parse(Text_Ile_medali_t.Text)
             };
 
             db.trenerzies.Add(tren);
@@ -98,6 +81,57 @@ namespace Zawody_projekt
 
             this.gridTrenerzy.ItemsSource = trenerzy.ToList();
         }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            TurniejEntities db = new TurniejEntities();
+
+            var trenerzy = from d in db.trenerzies
+                           select new
+                           {
+                               Trener_ID = d.id_trenera,
+                               Imię_Trenera = d.imie_t,
+                               Nazwisko_Trenera = d.nazwisko_t,
+                               Ilość_Medali = d.ile_medali_t
+                           };
+        }
+
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            TurniejEntities db = new TurniejEntities();
+
+            int x = Int32.Parse(ID_T.Text);
+
+            var r = from d in db.trenerzies
+                    where d.id_trenera == x
+                    select d;
+
+            trenerzy obj = r.SingleOrDefault();
+
+            if(obj != null)
+            {
+                obj.imie_t = this.Text_Imie_t.Text;
+                obj.nazwisko_t = this.Text_Nazwisko_t.Text;
+                obj.ile_medali_t = Int32.Parse(Text_Ile_medali_t.Text);
+            }
+
+            db.SaveChanges();
+
+            var trenerzy = from d in db.trenerzies
+                           select new
+                           {
+                               Trener_ID = d.id_trenera,
+                               Imię_Trenera = d.imie_t,
+                               Nazwisko_Trenera = d.nazwisko_t,
+                               Ilość_Medali = d.ile_medali_t
+                           };
+
+            this.gridTrenerzy.ItemsSource = trenerzy.ToList();
+
+        }
+
+
     }
 }
 
