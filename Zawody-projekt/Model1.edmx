@@ -139,7 +139,7 @@
           </Key>
           <Property Name="id_zawodow" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="lokalizacja" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lokalizacja" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="uczestnictwoes" Relationship="Self.FK__uczestnic__id_za__2C3393D0" FromRole="zawody" ToRole="uczestnictwo" />
         </EntityType>
         <Association Name="FK__zawodnicy__id_tr__286302EC">

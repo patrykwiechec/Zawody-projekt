@@ -24,27 +24,19 @@ namespace Zawody_projekt
         public Zawody()
         {
             InitializeComponent();
-            //LoadGrid(); 
+
+            TurniejEntities db = new TurniejEntities();
+
+            var zawody = from d in db.zawodies
+                           select new
+                           {
+                               ID_Zawodów = d.id_zawodow,
+                               Nazwa = d.nazwa,
+                               Lokalizacja = d.lokalizacja
+                           };
+
+            this.gridTrenerzy.ItemsSource = zawody.ToList();
         }
-
-        //połączenie z bazą
-     //   SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=Zawody;Integrated Security=True");
-
-        //Wypisanie tabeli
-    /*   public void LoadGrid()
-        {
-            SqlCommand cmd = new SqlCommand("SELECT id_zawodow as ZawodyID, nazwa as NazwaZawodów, FORMAT(data_za,'M/dd/yyyy') as DataZawodów FROM Zawody", con);
-            DataTable dt = new DataTable();
-            con.Open();
-            SqlDataReader sdr = cmd.ExecuteReader();
-            dt.Load(sdr);
-            con.Close();
-           
-        }
-    */
-
-
-
 
         //cofnij do MainWindow
         private void Cofnij_Click(object sender, RoutedEventArgs e)
@@ -60,6 +52,161 @@ namespace Zawody_projekt
             System.Windows.Application.Current.Shutdown();
         }
 
-       
+        //Dodanie pola
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TurniejEntities db = new TurniejEntities();
+                //Warunek czy wypełniono
+                if (Text_Lokalizacja.Text != "" && Text_Lokalizacja.Text != "")
+                {
+                    
+                    zawody zawod = new zawody()
+                    {
+                        nazwa = Text_Nazwa.Text,
+                        lokalizacja = Text_Lokalizacja.Text
+                    };
+
+                    db.zawodies.Add(zawod);
+                    db.SaveChanges();
+
+                    var zawody = from d in db.zawodies
+                                   select new
+                                   {
+                                       ID_Zawodów = d.id_zawodow,
+                                       Nazwa = d.nazwa,
+                                       Lokalizacja = d.lokalizacja
+                                   };
+
+                    //Czyszczenie pól
+                    Text_Nazwa.Clear();
+                    Text_Lokalizacja.Clear();
+                    //Aktualizacja tabeli
+                    this.gridTrenerzy.ItemsSource = zawody.ToList();
+                }
+                //Błąd jeśli niewypełniono 
+                else
+                {
+                    MessageBox.Show("Nie wypełniłeś wszystkich pól!");
+                }
+            }
+            //Obsługa błędów
+            catch (FormatException)
+            {
+                MessageBox.Show("Ilość medali nie jest napisem!");
+            }
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+
+                TurniejEntities db = new TurniejEntities();
+
+                int x = Int32.Parse(ID_T.Text);
+
+                var r = from d in db.zawodies
+                        where d.id_zawodow == x
+                        select d;
+                zawody obj = r.SingleOrDefault();
+
+
+                if (x != obj.id_zawodow)
+                {
+                    return;
+                }
+
+
+                if (obj != null)
+                {
+                    db.zawodies.Remove(obj);
+                    db.SaveChanges();
+                }
+                //Czyszczenie pól
+                Text_Nazwa.Clear();
+                Text_Lokalizacja.Clear();
+
+                //Aktualizacja tabeli
+                var zawody = from d in db.zawodies
+                               select new
+                               {
+                                   ID_Zawodów = d.id_zawodow,
+                                   Nazwa = d.nazwa,
+                                   Lokalizacja = d.lokalizacja
+                               };
+
+                this.gridTrenerzy.ItemsSource = zawody.ToList();
+
+            }
+            //Obsługa błędów
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Nie ma takiego ID!");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("ID nie jest napisem!");
+            }
+
+        }
+
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TurniejEntities db = new TurniejEntities();
+
+                int x = Int32.Parse(ID_T.Text);
+
+                var r = from d in db.zawodies
+                        where d.id_zawodow == x
+                        select d;
+
+                zawody obj = r.SingleOrDefault();
+
+                if (x != obj.id_zawodow)
+                {
+                    return;
+                }
+
+                if (obj != null)
+                {
+                    if (this.Text_Lokalizacja.Text != "") obj.nazwa = this.Text_Nazwa.Text;
+                    if (this.Text_Lokalizacja.Text != "") obj.lokalizacja = this.Text_Lokalizacja.Text;
+                }
+                //Czyszczenie textbox
+                Text_Nazwa.Clear();
+                Text_Lokalizacja.Clear();
+
+
+
+                db.SaveChanges();
+
+                var zawody = from d in db.zawodies
+                               select new
+                               {
+                                   ID_Zawodów = d.id_zawodow,
+                                   Nazwa = d.nazwa,
+                                   Lokalizacja = d.lokalizacja
+                               };
+
+                this.gridTrenerzy.ItemsSource = zawody.ToList();
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Nie ma takiego ID!");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Błąd formatu pola lub ID!");
+            }
+
+
+        }
+
     }
 }
