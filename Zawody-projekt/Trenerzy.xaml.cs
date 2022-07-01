@@ -37,10 +37,6 @@ namespace Zawody_projekt
             this.gridTrenerzy.ItemsSource = trenerzy.ToList();
         }
 
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }
         //cofnij do MainWindow
         private void Cofnij_Click(object sender, RoutedEventArgs e)
         {
@@ -58,79 +54,158 @@ namespace Zawody_projekt
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            TurniejEntities db = new TurniejEntities();
-
-            trenerzy tren = new trenerzy()
+            try
             {
-                imie_t = Text_Imie_t.Text,
-                nazwisko_t = Text_Nazwisko_t.Text,
-                ile_medali_t = Int32.Parse(Text_Ile_medali_t.Text)
-            };
+                TurniejEntities db = new TurniejEntities();
 
-            db.trenerzies.Add(tren);
-            db.SaveChanges();
+                if (Text_Imie_t.Text != "" && Text_Nazwisko_t.Text != "" && Text_Ile_medali_t.Text != "")
+                {
 
-            var trenerzy = from d in db.trenerzies
-                           select new
-                           {
-                               Trener_ID = d.id_trenera,
-                               Imię_Trenera = d.imie_t,
-                               Nazwisko_Trenera = d.nazwisko_t,
-                               Ilość_Medali = d.ile_medali_t
-                           };
+                    trenerzy tren = new trenerzy()
+                    {
+                        imie_t = Text_Imie_t.Text,
+                        nazwisko_t = Text_Nazwisko_t.Text,
+                        ile_medali_t = Int32.Parse(Text_Ile_medali_t.Text)
+                    };
 
-            this.gridTrenerzy.ItemsSource = trenerzy.ToList();
+                    db.trenerzies.Add(tren);
+                    db.SaveChanges();
+
+                    var trenerzy = from d in db.trenerzies
+                                   select new
+                                   {
+                                       Trener_ID = d.id_trenera,
+                                       Imię_Trenera = d.imie_t,
+                                       Nazwisko_Trenera = d.nazwisko_t,
+                                       Ilość_Medali = d.ile_medali_t
+                                   };
+
+                    this.gridTrenerzy.ItemsSource = trenerzy.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("Nie wypełniłeś wszystkich pól!");
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Ilość medali nie jest napisem!");
+            }
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            TurniejEntities db = new TurniejEntities();
+            try
+            {
 
-            var trenerzy = from d in db.trenerzies
-                           select new
-                           {
-                               Trener_ID = d.id_trenera,
-                               Imię_Trenera = d.imie_t,
-                               Nazwisko_Trenera = d.nazwisko_t,
-                               Ilość_Medali = d.ile_medali_t
-                           };
+
+                TurniejEntities db = new TurniejEntities();
+
+                int x = Int32.Parse(ID_T.Text);
+
+                var r = from d in db.trenerzies
+                        where d.id_trenera == x
+                        select d;
+                trenerzy obj = r.SingleOrDefault();
+
+
+                if (x != obj.id_trenera)
+                {
+                    return;
+                }
+
+
+                if (obj != null)
+                {
+                    db.trenerzies.Remove(obj);
+                    db.SaveChanges();
+                }
+
+                Text_Ile_medali_t.Clear();
+                Text_Imie_t.Clear();
+                Text_Nazwisko_t.Clear();
+
+                var trenerzy = from d in db.trenerzies
+                               select new
+                               {
+                                   Trener_ID = d.id_trenera,
+                                   Imię_Trenera = d.imie_t,
+                                   Nazwisko_Trenera = d.nazwisko_t,
+                                   Ilość_Medali = d.ile_medali_t
+                               };
+
+                this.gridTrenerzy.ItemsSource = trenerzy.ToList();
+
+            }
+
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Nie ma takiego ID!");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("ID nie jest napisem!");
+            }
+
         }
 
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            TurniejEntities db = new TurniejEntities();
-
-            int x = Int32.Parse(ID_T.Text);
-
-            var r = from d in db.trenerzies
-                    where d.id_trenera == x
-                    select d;
-
-            trenerzy obj = r.SingleOrDefault();
-
-            if(obj != null)
+            try
             {
-                obj.imie_t = this.Text_Imie_t.Text;
-                obj.nazwisko_t = this.Text_Nazwisko_t.Text;
-                obj.ile_medali_t = Int32.Parse(Text_Ile_medali_t.Text);
+                TurniejEntities db = new TurniejEntities();
+
+                int x = Int32.Parse(ID_T.Text);
+
+                var r = from d in db.trenerzies
+                        where d.id_trenera == x
+                        select d;
+
+                trenerzy obj = r.SingleOrDefault();
+
+                if (x != obj.id_trenera)
+                {
+                    return;
+                }
+
+                if (obj != null)
+                {
+                    if (this.Text_Imie_t.Text != "") obj.imie_t = this.Text_Imie_t.Text;
+                    if (this.Text_Nazwisko_t.Text != "") obj.nazwisko_t = this.Text_Nazwisko_t.Text;
+                    if (this.Text_Ile_medali_t.Text != "") obj.ile_medali_t = Int32.Parse(Text_Ile_medali_t.Text);
+                }
+
+                Text_Ile_medali_t.Clear();
+                Text_Imie_t.Clear();
+                Text_Nazwisko_t.Clear();
+
+
+
+                db.SaveChanges();
+
+                var trenerzy = from d in db.trenerzies
+                               select new
+                               {
+                                   Trener_ID = d.id_trenera,
+                                   Imię_Trenera = d.imie_t,
+                                   Nazwisko_Trenera = d.nazwisko_t,
+                                   Ilość_Medali = d.ile_medali_t
+                               };
+
+                this.gridTrenerzy.ItemsSource = trenerzy.ToList();
+             }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Nie ma takiego ID!");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Błąd formatu pola lub ID!");
             }
 
-            db.SaveChanges();
-
-            var trenerzy = from d in db.trenerzies
-                           select new
-                           {
-                               Trener_ID = d.id_trenera,
-                               Imię_Trenera = d.imie_t,
-                               Nazwisko_Trenera = d.nazwisko_t,
-                               Ilość_Medali = d.ile_medali_t
-                           };
-
-            this.gridTrenerzy.ItemsSource = trenerzy.ToList();
 
         }
-
 
     }
 }

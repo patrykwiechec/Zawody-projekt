@@ -43,10 +43,10 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <TextBox HorizontalAlignment="Left" Height="245" IsReadOnly = "True" Margin="343,183,0,0" TextWrapping="Wrap" Text="Projekt zaliczeniowy CRUD" VerticalAlignment="Top" Width="925" TextChanged="TextBox_TextChanged" TextAlignment="Center" FontWeight="Bold" FontSize="90" BorderThickness="0,0,0,0" Background="{x:Null}" Foreground="White"/>
-        <TextBox HorizontalAlignment="Center" Height="98" IsReadOnly = "True" Margin="0,483,0,0" TextWrapping="Wrap" Text="Wybierz tabelę do edycji" VerticalAlignment="Top" Width="936" FontSize="72" TextAlignment="Center" TextChanged="TextBox_TextChanged_2" Background="{x:Null}" Foreground="White" FontWeight="Bold" BorderThickness="0,0,0,0" FontFamily="Times New Roman"/>
+        <TextBox HorizontalAlignment="Left" Height="245" IsReadOnly = "True" Margin="343,183,0,0" TextWrapping="Wrap" Text="Projekt zaliczeniowy CRUD" VerticalAlignment="Top" Width="925" TextAlignment="Center" FontWeight="Bold" FontSize="90" BorderThickness="0,0,0,0" Background="{x:Null}" Foreground="White"/>
+        <TextBox HorizontalAlignment="Center" Height="98" IsReadOnly = "True" Margin="0,483,0,0" TextWrapping="Wrap" Text="Wybierz tabelę do edycji" VerticalAlignment="Top" Width="936" FontSize="72" TextAlignment="Center" Background="{x:Null}" Foreground="White" FontWeight="Bold" BorderThickness="0,0,0,0" FontFamily="Times New Roman"/>
         <Button x:Name="Exit" Content="X" Margin="1501,8,0,0" Width="60" Height="60" FontSize="30" RenderTransformOrigin="26.5,-5.56" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF980C0C" BorderBrush="Black" BorderThickness="8,8,8,8" FontWeight="Bold" Click="Exit_Click"/>
-        <TextBox TextWrapping="Wrap" Text="Patryk Wiecheć 13355" IsReadOnly = "True" Margin="1118,10,82,779" RenderTransformOrigin="0.519,1.221" TextChanged="TextBox_TextChanged_1" FontStyle="Italic" BorderThickness="0,0,0,0" FontSize="36" FontWeight="Bold" Background="{x:Null}" Foreground="White" Width="400"/>
+        <TextBox TextWrapping="Wrap" Text="Patryk Wiecheć 13355" IsReadOnly = "True" Margin="1118,10,82,779" RenderTransformOrigin="0.519,1.221"  FontStyle="Italic" BorderThickness="0,0,0,0" FontSize="36" FontWeight="Bold" Background="{x:Null}" Foreground="White" Width="400"/>
 
     </Grid>
 

@@ -24,11 +24,11 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <TextBox TextWrapping="Wrap" Text="Patryk Wiecheć 13355" IsReadOnly = "True" Margin="1118,10,82,779" RenderTransformOrigin="0.519,1.221" TextChanged="TextBox_TextChanged_1" FontStyle="Italic" BorderThickness="0,0,0,0" FontSize="36" FontWeight="Bold" Background="{x:Null}" Foreground="White" Width="400"/>
+            <TextBox TextWrapping="Wrap" Text="Patryk Wiecheć 13355" IsReadOnly = "True" Margin="1118,10,82,779" RenderTransformOrigin="0.519,1.221" FontStyle="Italic" BorderThickness="0,0,0,0" FontSize="36" FontWeight="Bold" Background="{x:Null}" Foreground="White" Width="400"/>
             <DataGrid AutoGenerateColumns="True" Grid.Column="0" Grid.Row="0"
       ScrollViewer.CanContentScroll="True" 
       ScrollViewer.VerticalScrollBarVisibility="Auto"
-      ScrollViewer.HorizontalScrollBarVisibility="Auto" x:Name="gridTrenerzy" d:ItemsSource="{d:SampleData ItemCount=5}"  IsReadOnly="True" Margin="46,110,39,382" GridLinesVisibility="All" FontSize="25" FontFamily="Franklin Gothic Medium" RowHeight="64" ColumnWidth="Auto" />
+      ScrollViewer.HorizontalScrollBarVisibility="Auto" x:Name="gridTrenerzy" d:ItemsSource="{d:SampleData ItemCount=5}"  IsReadOnly="True" Margin="46,110,39,382" GridLinesVisibility="All" FontSize="25" FontFamily="Franklin Gothic Medium" RowHeight="64" ColumnWidth="Auto"/>
             <Label Content="Nazwisko&#xD;&#xA;" HorizontalAlignment="Left" Height="82" Margin="46,606,0,0" VerticalAlignment="Top" Width="300" FontSize="35" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF7F25DE" BorderThickness="4,4,4,4" BorderBrush="Black"/>
             <Label Content="Ilość medali&#xA;" HorizontalAlignment="Left" Height="80" Margin="46,693,0,0" VerticalAlignment="Top" Width="300" FontSize="35" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF7F25DE" BorderThickness="4,4,4,4" BorderBrush="Black"/>
             <TextBox x:Name="Text_Imie_t" HorizontalAlignment="Left" Height="78" Margin="351,524,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="269" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black"/>
@@ -53,7 +53,7 @@
             </Button>
             <Label Content="ID&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Height="79" Margin="1166,562,0,0" VerticalAlignment="Top" Width="184" FontSize="35" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="#FF060606" Background="#FF7F25DE"/>
             <TextBox x:Name="ID_T" HorizontalAlignment="Left" Height="79" Margin="1361,562,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black"/>
-            <Button x:Name="Delete_Copy" Content="Usuń" HorizontalAlignment="Left" Height="81" Margin="1361,652,0,0" VerticalAlignment="Top" Width="200" BorderBrush="Black" BorderThickness="4,4,4,4" FontWeight="Bold" FontStyle="Italic" FontSize="36" FontFamily="Times New Roman" Foreground="White" Click="Delete_Click">
+            <Button x:Name="Delete" Content="Usuń" HorizontalAlignment="Left" Height="81" Margin="1361,652,0,0" VerticalAlignment="Top" Width="200" BorderBrush="Black" BorderThickness="4,4,4,4" FontWeight="Bold" FontStyle="Italic" FontSize="36" FontFamily="Times New Roman" Foreground="White" Click="Delete_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF830AEC" Offset="1"/>
