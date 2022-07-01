@@ -51,13 +51,13 @@ namespace Zawody_projekt
             System.Windows.Application.Current.Shutdown();
         }
 
-
+        //Dodanie pola
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 TurniejEntities db = new TurniejEntities();
-
+                //Warunek czy wypełniono
                 if (Text_Imie_t.Text != "" && Text_Nazwisko_t.Text != "" && Text_Ile_medali_t.Text != "")
                 {
 
@@ -80,13 +80,20 @@ namespace Zawody_projekt
                                        Ilość_Medali = d.ile_medali_t
                                    };
 
+                    //Czyszczenie pól
+                    Text_Ile_medali_t.Clear();
+                    Text_Imie_t.Clear();
+                    Text_Nazwisko_t.Clear();
+                    //Aktualizacja tabeli
                     this.gridTrenerzy.ItemsSource = trenerzy.ToList();
                 }
+                //Błąd jeśli niewypełniono 
                 else
                 {
                     MessageBox.Show("Nie wypełniłeś wszystkich pól!");
                 }
             }
+            //Obsługa błędów
             catch (FormatException)
             {
                 MessageBox.Show("Ilość medali nie jest napisem!");
@@ -120,11 +127,12 @@ namespace Zawody_projekt
                     db.trenerzies.Remove(obj);
                     db.SaveChanges();
                 }
-
+                //Czyszczenie pól
                 Text_Ile_medali_t.Clear();
                 Text_Imie_t.Clear();
                 Text_Nazwisko_t.Clear();
 
+                //Aktualizacja tabeli
                 var trenerzy = from d in db.trenerzies
                                select new
                                {
@@ -137,7 +145,7 @@ namespace Zawody_projekt
                 this.gridTrenerzy.ItemsSource = trenerzy.ToList();
 
             }
-
+            //Obsługa błędów
             catch (NullReferenceException)
             {
                 MessageBox.Show("Nie ma takiego ID!");
