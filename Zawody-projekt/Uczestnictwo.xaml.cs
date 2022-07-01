@@ -20,9 +20,26 @@ namespace Zawody_projekt
     public partial class Uczestnictwo : Window
     {
         public Uczestnictwo()
-        {
+ {
             InitializeComponent();
+
+            TurniejEntities db = new TurniejEntities();
+
+            var uczestnictwo = from d in db.uczestnictwoes
+                               join id1 in db.zawodnicies on d.id_zawodnika equals id1.id_zawodnika 
+                               join id2 in db.zawodies on d.id_zawodow equals id2.id_zawodow
+                               select new
+
+                               {
+                                   ID_Uczestnictwa = d.id_uczestnictwa,
+                                   Zawodnik = id1.nazwisko,
+                                   Zawody = id2.nazwa
+                               };
+
+                             
+            this.gridTrenerzy.ItemsSource = uczestnictwo.ToList();
         }
+
         //cofnij do MainWindow
         private void Cofnij_Click(object sender, RoutedEventArgs e)
         {
@@ -35,6 +52,179 @@ namespace Zawody_projekt
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
+        }
+
+        //Dodanie pola
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TurniejEntities db = new TurniejEntities();
+                //Warunek czy wypełniono
+                if (Text_IDZ.Text != "" && Text_IDZa.Text != "")
+                {
+                    
+                    uczestnictwo uczes = new uczestnictwo()
+                    {
+                        id_zawodnika = Int32.Parse(Text_IDZ.Text),
+                        id_zawodow = Int32.Parse(Text_IDZa.Text),
+                    };
+
+                    db.uczestnictwoes.Add(uczes);
+                    db.SaveChanges();
+
+                    var uczestnictwo = from d in db.uczestnictwoes
+                                       join id1 in db.zawodnicies on d.id_zawodnika equals id1.id_zawodnika
+                                       join id2 in db.zawodies on d.id_zawodow equals id2.id_zawodow
+                                       select new
+
+                                       {
+                                           ID_Uczestnictwa = d.id_uczestnictwa,
+                                           Zawodnik = id1.nazwisko,
+                                           Zawody = id2.nazwa
+                                       };
+
+                    //Czyszczenie pól
+                    Text_IDZ.Clear();
+                    Text_IDZa.Clear();
+                    //Aktualizacja tabeli
+                    this.gridTrenerzy.ItemsSource = uczestnictwo.ToList();
+                }
+                //Błąd jeśli niewypełniono 
+                else
+                {
+                    MessageBox.Show("Nie wypełniłeś wszystkich pól!");
+                }
+            }
+            //Obsługa błędów
+            catch (FormatException)
+            {
+                MessageBox.Show("Ilość medali nie jest napisem!");
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                MessageBox.Show("Nie ma takiego zawodnika lub zawodów!");
+            }
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+
+                TurniejEntities db = new TurniejEntities();
+
+                int x = Int32.Parse(ID_T.Text);
+
+                var r = from d in db.uczestnictwoes
+                        where d.id_uczestnictwa == x
+                        select d;
+                uczestnictwo obj = r.SingleOrDefault();
+
+
+                if (x != obj.id_uczestnictwa)
+                {
+                    return;
+                }
+
+
+                if (obj != null)
+                {
+                    db.uczestnictwoes.Remove(obj);
+                    db.SaveChanges();
+                }
+                //Czyszczenie pól
+                Text_IDZ.Clear();
+                Text_IDZa.Clear();
+
+                //Aktualizacja tabeli
+                var uczestnictwo = from d in db.uczestnictwoes
+                                   join id1 in db.zawodnicies on d.id_zawodnika equals id1.id_zawodnika
+                                   join id2 in db.zawodies on d.id_zawodow equals id2.id_zawodow
+                                   select new
+
+                                   {
+                                       ID_Uczestnictwa = d.id_uczestnictwa,
+                                       Zawodnik = id1.nazwisko,
+                                       Zawody = id2.nazwa
+                                   };
+
+                this.gridTrenerzy.ItemsSource = uczestnictwo.ToList();
+
+            }
+            //Obsługa błędów
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Nie ma takiego ID!");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("ID nie jest napisem!");
+            }
+
+        }
+
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TurniejEntities db = new TurniejEntities();
+
+                int x = Int32.Parse(ID_T.Text);
+
+                var r = from d in db.uczestnictwoes
+                        where d.id_uczestnictwa == x
+                        select d;
+
+                uczestnictwo obj = r.SingleOrDefault();
+
+                if (x != obj.id_uczestnictwa)
+                {
+                    return;
+                }
+
+                if (obj != null)
+                {
+                    if (this.Text_IDZ.Text != "") obj.id_zawodow = Int32.Parse(this.Text_IDZ.Text);
+                    if (this.Text_IDZa.Text != "") obj.id_zawodnika = Int32.Parse(this.Text_IDZa.Text);
+                }
+                //Czyszczenie textbox
+                Text_IDZ.Clear();
+                Text_IDZa.Clear();
+
+
+
+                db.SaveChanges();
+
+                var uczestnictwo = from d in db.uczestnictwoes
+                                   join id1 in db.zawodnicies on d.id_zawodnika equals id1.id_zawodnika
+                                   join id2 in db.zawodies on d.id_zawodow equals id2.id_zawodow
+                                   select new
+
+                                   {
+                                       ID_Uczestnictwa = d.id_uczestnictwa,
+                                       Zawodnik = id1.nazwisko,
+                                       Zawody = id2.nazwa
+                                   };
+
+                this.gridTrenerzy.ItemsSource = uczestnictwo.ToList();
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Nie ma takiego ID!");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Błąd formatu pól ID!");
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                MessageBox.Show("Nie ma takiego zawodnika lub zawodów!");
+            }
+
+
         }
 
     }

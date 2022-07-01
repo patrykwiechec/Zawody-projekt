@@ -175,7 +175,7 @@ namespace Zawody_projekt
 
                 if (obj != null)
                 {
-                    if (this.Text_Lokalizacja.Text != "") obj.nazwa = this.Text_Nazwa.Text;
+                    if (this.Text_Nazwa.Text != "") obj.nazwa = this.Text_Nazwa.Text;
                     if (this.Text_Lokalizacja.Text != "") obj.lokalizacja = this.Text_Lokalizacja.Text;
                 }
                 //Czyszczenie textbox

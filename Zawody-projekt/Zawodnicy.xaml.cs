@@ -31,14 +31,14 @@ namespace Zawody_projekt
             TurniejEntities db = new TurniejEntities();
 
             var zawodnicy = from d in db.zawodnicies
-                           select new
+                            join t in db.trenerzies on d.id_trenera equals t.id_trenera select new
                            {
                                Zawodnik_ID = d.id_zawodnika,
                                Imię_Zawodnik = d.imie,
                                Nazwisko_Zawodnika = d.nazwisko,
                                Kraj = d.kraj,
                                Ilość_Medali = d.ile_medali_t,
-                               Trener_ID = d.id_trenera
+                               Trener = t.nazwisko_t
                            };
 
             this.gridTrenerzy.ItemsSource = zawodnicy.ToList();
@@ -74,22 +74,23 @@ namespace Zawody_projekt
                         nazwisko = Text_Nazwisko.Text,
                         kraj = Text_Kraj.Text,
                         ile_medali_t = Int32.Parse(Text_Ile_medali.Text),
-                        id_trenera = int.Parse(Text_ID_T.Text),
+                        id_trenera = Int32.Parse(Text_ID_T.Text),
                     };
 
                     db.zawodnicies.Add(zaw);
                     db.SaveChanges();
 
                     var zawodnicy = from d in db.zawodnicies
-                                   select new
-                                   {
-                                       Zawodnik_ID = d.id_zawodnika,
-                                       Imię_Zawodnik = d.imie,
-                                       Nazwisko_Zawodnika = d.nazwisko,
-                                       Kraj = d.kraj,
-                                       Ilość_Medali = d.ile_medali_t,
-                                       Trener_ID = d.id_trenera
-                                   };
+                                    join t in db.trenerzies on d.id_trenera equals t.id_trenera
+                                    select new
+                                    {
+                                        Zawodnik_ID = d.id_zawodnika,
+                                        Imię_Zawodnik = d.imie,
+                                        Nazwisko_Zawodnika = d.nazwisko,
+                                        Kraj = d.kraj,
+                                        Ilość_Medali = d.ile_medali_t,
+                                        Trener = t.nazwisko_t
+                                    };
 
                     //Czyszczenie pól
                     Text_Ile_medali.Clear();
@@ -153,6 +154,7 @@ namespace Zawody_projekt
 
                 //Aktualizacja tabeli
                 var zawodnicy = from d in db.zawodnicies
+                                join t in db.trenerzies on d.id_trenera equals t.id_trenera
                                 select new
                                 {
                                     Zawodnik_ID = d.id_zawodnika,
@@ -160,7 +162,7 @@ namespace Zawody_projekt
                                     Nazwisko_Zawodnika = d.nazwisko,
                                     Kraj = d.kraj,
                                     Ilość_Medali = d.ile_medali_t,
-                                    Trener_ID = d.id_trenera
+                                    Trener = t.nazwisko_t
                                 };
 
                 this.gridTrenerzy.ItemsSource = zawodnicy.ToList();
@@ -218,15 +220,16 @@ namespace Zawody_projekt
                 db.SaveChanges();
 
                 var zawodnicy = from d in db.zawodnicies
-                               select new
-                               {
-                                   Zawodnik_ID = d.id_zawodnika,
-                                   Imię_Zawodnik = d.imie,
-                                   Nazwisko_Zawodnika = d.nazwisko,
-                                   Kraj = d.kraj,
-                                   Ilość_Medali = d.ile_medali_t,
-                                   Trener_ID = d.id_trenera
-                               };
+                                join t in db.trenerzies on d.id_trenera equals t.id_trenera
+                                select new
+                                {
+                                    Zawodnik_ID = d.id_zawodnika,
+                                    Imię_Zawodnik = d.imie,
+                                    Nazwisko_Zawodnika = d.nazwisko,
+                                    Kraj = d.kraj,
+                                    Ilość_Medali = d.ile_medali_t,
+                                    Trener = t.nazwisko_t
+                                };
 
                 this.gridTrenerzy.ItemsSource = zawodnicy.ToList();
             }
