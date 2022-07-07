@@ -31,7 +31,7 @@
             <DataGrid AutoGenerateColumns="True" Grid.Column="0" Grid.Row="0"
       ScrollViewer.CanContentScroll="True" 
       ScrollViewer.VerticalScrollBarVisibility="Auto"
-      ScrollViewer.HorizontalScrollBarVisibility="Auto" x:Name="gridTrenerzy" d:ItemsSource="{d:SampleData ItemCount=5}"  IsReadOnly="True" Margin="46,110,39,367" GridLinesVisibility="All" FontSize="25" FontFamily="Franklin Gothic Medium" RowHeight="64" ColumnWidth="Auto"/>
+      ScrollViewer.HorizontalScrollBarVisibility="Auto" x:Name="gridTrenerzy" d:ItemsSource="{d:SampleData ItemCount=5}"  IsReadOnly="True" Margin="46,110,39,450" GridLinesVisibility="All" FontSize="25" FontFamily="Franklin Gothic Medium" RowHeight="64" ColumnWidth="Auto"/>
             <Label Content="Nazwisko&#xD;&#xA;" HorizontalAlignment="Left" Height="49" Margin="46,572,0,0" VerticalAlignment="Top" Width="300" FontSize="22" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF7F25DE" BorderThickness="4,4,4,4" BorderBrush="Black"/>
             <Label Content="Ilość medali&#xA;" HorizontalAlignment="Left" Height="49" Margin="46,668,0,0" VerticalAlignment="Top" Width="300" FontSize="22" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF7F25DE" BorderThickness="4,4,4,4" BorderBrush="Black"/>
             <TextBox x:Name="Text_Imie" HorizontalAlignment="Left" Height="49" Margin="346,523,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="269" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black"/>
