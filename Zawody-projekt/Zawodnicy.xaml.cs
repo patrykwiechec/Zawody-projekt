@@ -19,7 +19,7 @@ namespace Zawody_projekt
     /// <summary>
     /// Interaction logic for Zawodnicy.xaml
     /// </summary>
-    /// 
+    /// u
     public partial class Zawodnicy : Window
     {
 

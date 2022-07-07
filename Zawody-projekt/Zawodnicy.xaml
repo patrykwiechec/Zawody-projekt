@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zawody_projekt"
         mc:Ignorable="d"
-        Title="Zawodnicy" Height="900" Width="1600">
+        
+        Title="Zawodnicy" Height="900" Width="1600"
+        
+        WindowStyle="None"
+        WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1061*"/>
