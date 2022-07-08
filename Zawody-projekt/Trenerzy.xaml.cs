@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 
 namespace Zawody_projekt
 {
-    /// <summary>
-    /// Interaction logic for Trenerzy.xaml
-    /// </summary>
+
     public partial class Trenerzy : Window
     {
         public Trenerzy()
@@ -84,6 +82,7 @@ namespace Zawody_projekt
                     Text_Ile_medali_t.Clear();
                     Text_Imie_t.Clear();
                     Text_Nazwisko_t.Clear();
+                    ID_T.Clear();
                     //Aktualizacja tabeli
                     this.gridTrenerzy.ItemsSource = trenerzy.ToList();
                 }
@@ -131,6 +130,7 @@ namespace Zawody_projekt
                 Text_Ile_medali_t.Clear();
                 Text_Imie_t.Clear();
                 Text_Nazwisko_t.Clear();
+                ID_T.Clear();
 
                 //Aktualizacja tabeli
                 var trenerzy = from d in db.trenerzies
@@ -183,11 +183,11 @@ namespace Zawody_projekt
                     if (this.Text_Nazwisko_t.Text != "") obj.nazwisko_t = this.Text_Nazwisko_t.Text;
                     if (this.Text_Ile_medali_t.Text != "") obj.ile_medali_t = Int32.Parse(Text_Ile_medali_t.Text);
                 }
-
+                //Czyszczenie pól
                 Text_Ile_medali_t.Clear();
                 Text_Imie_t.Clear();
                 Text_Nazwisko_t.Clear();
-
+                ID_T.Clear();
 
 
                 db.SaveChanges();
@@ -203,6 +203,7 @@ namespace Zawody_projekt
 
                 this.gridTrenerzy.ItemsSource = trenerzy.ToList();
              }
+            //Obsługa błędów
             catch (NullReferenceException)
             {
                 MessageBox.Show("Nie ma takiego ID!");

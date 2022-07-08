@@ -11,14 +11,18 @@
         WindowStyle="None"
         WindowState="Maximized">
     <Grid>
+        <!-- Sekcja odpowiedzialna za wyświetlanie tabeli -->
         <Grid.RowDefinitions>
             <RowDefinition Height="1061*"/>
             <RowDefinition Height="26*"/>
         </Grid.RowDefinitions>
         <Grid Grid.RowSpan="2">
+
+            <!-- Obraz tła aplikacji -->
             <Grid.Background>
                 <ImageBrush ImageSource="/ITBG.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
+            <!-- Przycisk wywołujący funkcję "Cofnij_Click" -->
             <Button x:Name="Cofnij" Content="Cofnij" HorizontalAlignment="Left" Height="61" Margin="1387,791,0,0" VerticalAlignment="Top" Width="174" BorderBrush="Black" BorderThickness="2,2,2,2" FontWeight="Bold" FontStyle="Italic" FontSize="36" FontFamily="Times New Roman" Foreground="White" Click="Cofnij_Click" RenderTransformOrigin="0.483,-0.025">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -27,21 +31,26 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
+            <!-- Podpis -->
             <TextBox TextWrapping="Wrap" Text="Patryk Wiecheć 13355" IsReadOnly = "True" Margin="1118,10,82,779" RenderTransformOrigin="0.519,1.221" FontStyle="Italic" BorderThickness="0,0,0,0" FontSize="36" FontWeight="Bold" Background="{x:Null}" Foreground="White" Width="400"/>
             <DataGrid AutoGenerateColumns="True" Grid.Column="0" Grid.Row="0"
       ScrollViewer.CanContentScroll="True" 
       ScrollViewer.VerticalScrollBarVisibility="Auto"
       ScrollViewer.HorizontalScrollBarVisibility="Auto" x:Name="gridTrenerzy" d:ItemsSource="{d:SampleData ItemCount=5}"  IsReadOnly="True" Margin="46,110,39,450" GridLinesVisibility="All" FontSize="25" FontFamily="Franklin Gothic Medium" RowHeight="64" ColumnWidth="Auto"/>
+            <!-- Textboxy nazw dla pól wprowadzających-->
             <Label Content="Nazwisko&#xD;&#xA;" HorizontalAlignment="Left" Height="49" Margin="46,572,0,0" VerticalAlignment="Top" Width="300" FontSize="22" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF7F25DE" BorderThickness="4,4,4,4" BorderBrush="Black"/>
             <Label Content="Ilość medali&#xA;" HorizontalAlignment="Left" Height="49" Margin="46,668,0,0" VerticalAlignment="Top" Width="300" FontSize="22" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF7F25DE" BorderThickness="4,4,4,4" BorderBrush="Black"/>
-            <TextBox x:Name="Text_Imie" HorizontalAlignment="Left" Height="49" Margin="346,523,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="269" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black"/>
-            <TextBox x:Name="Text_Nazwisko" HorizontalAlignment="Left" Height="49" Margin="346,572,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="270" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black" RenderTransformOrigin="0.456,2.5"/>
             <Label Content="Imię&#xA;" HorizontalAlignment="Left" Height="50" Margin="46,522,0,0" VerticalAlignment="Top" Width="300" FontSize="22" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="#FF060606" Background="#FF7F25DE"/>
             <Label Content="Kraj pochodzenia" HorizontalAlignment="Left" Height="49" Margin="46,621,0,0" VerticalAlignment="Top" Width="300" FontSize="22" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF7F25DE" BorderThickness="4,4,4,4" BorderBrush="Black"/>
+            <Label Content="ID Trenera" HorizontalAlignment="Left" Height="49" Margin="46,717,0,0" VerticalAlignment="Top" Width="300" FontSize="22" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF7F25DE" BorderThickness="4,4,4,4" BorderBrush="Black"/>
+            <!-- Pola do wprowadzania danych -->
+            <TextBox x:Name="Text_Imie" HorizontalAlignment="Left" Height="49" Margin="346,523,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="269" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black"/>
+            <TextBox x:Name="Text_Nazwisko" HorizontalAlignment="Left" Height="49" Margin="346,572,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="269" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black" RenderTransformOrigin="0.456,2.5"/>
             <TextBox x:Name="Text_Kraj" HorizontalAlignment="Left" Height="49" Margin="346,621,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="269" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black"/>
             <TextBox x:Name="Text_Ile_medali" HorizontalAlignment="Left" Height="49" Margin="346,668,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="269" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black"/>
             <TextBox x:Name="Text_ID_T" HorizontalAlignment="Left" Height="49" Margin="346,717,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="269" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black"/>
             <TextBox x:Name="ID_Z" HorizontalAlignment="Left" Height="79" Margin="1361,562,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" FontSize="25" TextAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="Black"/>
+            <!-- Przycisk wywołujący funkcję "Add_Click" -->
             <Button x:Name="Add" Content="Dodaj" HorizontalAlignment="Left" Height="62" Margin="186,790,0,0" VerticalAlignment="Top" Width="300" BorderBrush="Black" BorderThickness="4,4,4,4" FontWeight="Bold" FontStyle="Italic" FontSize="36" FontFamily="Times New Roman" Foreground="White" Click="Add_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -50,6 +59,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
+            <!-- Przycisk wywołujący funkcję "Update_Click" -->
             <Button x:Name="Update" Content="Aktualizuj" HorizontalAlignment="Left" Height="81" Margin="1166,652,0,0" VerticalAlignment="Top" Width="184" BorderBrush="Black" BorderThickness="4,4,4,4" FontWeight="Bold" FontStyle="Italic" FontSize="36" FontFamily="Times New Roman" Foreground="White" Click="Update_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -58,8 +68,10 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
+            <!-- Textbox z nazwą dla pola wprowadzającego ID-->
             <Label Content="ID&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Height="79" Margin="1166,562,0,0" VerticalAlignment="Top" Width="184" FontSize="35" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="4,4,4,4" BorderBrush="#FF060606" Background="#FF7F25DE"/>
-           <Button x:Name="Delete" Content="Usuń" HorizontalAlignment="Left" Height="81" Margin="1361,652,0,0" VerticalAlignment="Top" Width="200" BorderBrush="Black" BorderThickness="4,4,4,4" FontWeight="Bold" FontStyle="Italic" FontSize="36" FontFamily="Times New Roman" Foreground="White" Click="Delete_Click">
+            <!-- Przycisk wywołujący funkcję "Delete_Click" -->
+            <Button x:Name="Delete" Content="Usuń" HorizontalAlignment="Left" Height="81" Margin="1361,652,0,0" VerticalAlignment="Top" Width="200" BorderBrush="Black" BorderThickness="4,4,4,4" FontWeight="Bold" FontStyle="Italic" FontSize="36" FontFamily="Times New Roman" Foreground="White" Click="Delete_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF830AEC" Offset="1"/>
@@ -67,11 +79,8 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
+            <!-- Przycisk wywołujący funkcję "Exit_Click" -->
             <Button x:Name="Exit" Content="X" Margin="1501,8,0,0" Width="60" Height="60" FontSize="30" RenderTransformOrigin="26.5,-5.56" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF980C0C" BorderBrush="Black" BorderThickness="8,8,8,8" FontWeight="Bold" Click="Exit_Click"/>
-            
-            <Label Content="ID Trenera" HorizontalAlignment="Left" Height="49" Margin="46,717,0,0" VerticalAlignment="Top" Width="300" FontSize="22" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF7F25DE" BorderThickness="4,4,4,4" BorderBrush="Black"/>
-            
         </Grid>
-
     </Grid>
 </Window>

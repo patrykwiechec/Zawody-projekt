@@ -16,10 +16,6 @@ using System.Data.SqlClient;
 
 namespace Zawody_projekt
 {
-    /// <summary>
-    /// Interaction logic for Zawodnicy.xaml
-    /// </summary>
-    /// u
     public partial class Zawodnicy : Window
     {
 
@@ -29,7 +25,7 @@ namespace Zawody_projekt
             InitializeComponent();
 
             TurniejEntities db = new TurniejEntities();
-
+            //Wyświetlanie tabeli
             var zawodnicy = from d in db.zawodnicies
                             join t in db.trenerzies on d.id_trenera equals t.id_trenera select new
                            {
@@ -101,7 +97,6 @@ namespace Zawody_projekt
                     //Aktualizacja tabeli
                     this.gridTrenerzy.ItemsSource = zawodnicy.ToList();
                 }
-                //Błąd jeśli niewypełniono 
                 else
                 {
                     MessageBox.Show("Nie wypełniłeś wszystkich pól!");
@@ -208,7 +203,7 @@ namespace Zawody_projekt
                     if (this.Text_Kraj.Text != "") obj.kraj = this.Text_Kraj.Text;
                     if (this.Text_ID_T.Text != "") obj.id_trenera = Int32.Parse(Text_ID_T.Text);
                 }
-
+                //Czyszczenie pól
                 Text_Ile_medali.Clear();
                 Text_Imie.Clear();
                 Text_Nazwisko.Clear();
@@ -218,7 +213,7 @@ namespace Zawody_projekt
 
 
                 db.SaveChanges();
-
+                //Aktualizacja tabeli
                 var zawodnicy = from d in db.zawodnicies
                                 join t in db.trenerzies on d.id_trenera equals t.id_trenera
                                 select new
@@ -233,6 +228,7 @@ namespace Zawody_projekt
 
                 this.gridTrenerzy.ItemsSource = zawodnicy.ToList();
             }
+            //Obsługa błędów
             catch (NullReferenceException)
             {
                 MessageBox.Show("Nie ma takiego ID!");

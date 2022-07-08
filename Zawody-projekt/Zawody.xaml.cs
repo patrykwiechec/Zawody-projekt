@@ -16,9 +16,6 @@ using System.Data;
 
 namespace Zawody_projekt
 {
-    /// <summary>
-    /// Interaction logic for Zawody.xaml
-    /// </summary>
     public partial class Zawody : Window
     {
         public Zawody()
@@ -26,7 +23,7 @@ namespace Zawody_projekt
             InitializeComponent();
 
             TurniejEntities db = new TurniejEntities();
-
+            //Wyświetlanie tabeli
             var zawody = from d in db.zawodies
                            select new
                            {
@@ -82,6 +79,7 @@ namespace Zawody_projekt
                     //Czyszczenie pól
                     Text_Nazwa.Clear();
                     Text_Lokalizacja.Clear();
+                    ID_T.Clear();
                     //Aktualizacja tabeli
                     this.gridTrenerzy.ItemsSource = zawody.ToList();
                 }
@@ -128,6 +126,7 @@ namespace Zawody_projekt
                 //Czyszczenie pól
                 Text_Nazwa.Clear();
                 Text_Lokalizacja.Clear();
+                ID_T.Clear();
 
                 //Aktualizacja tabeli
                 var zawody = from d in db.zawodies
@@ -178,9 +177,10 @@ namespace Zawody_projekt
                     if (this.Text_Nazwa.Text != "") obj.nazwa = this.Text_Nazwa.Text;
                     if (this.Text_Lokalizacja.Text != "") obj.lokalizacja = this.Text_Lokalizacja.Text;
                 }
-                //Czyszczenie textbox
+                //Czyszczenie pól
                 Text_Nazwa.Clear();
                 Text_Lokalizacja.Clear();
+                ID_T.Clear();
 
 
 
@@ -196,6 +196,7 @@ namespace Zawody_projekt
 
                 this.gridTrenerzy.ItemsSource = zawody.ToList();
             }
+            //Obsługa błędów
             catch (NullReferenceException)
             {
                 MessageBox.Show("Nie ma takiego ID!");

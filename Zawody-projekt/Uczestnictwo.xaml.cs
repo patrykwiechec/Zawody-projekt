@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 
 namespace Zawody_projekt
 {
-    /// <summary>
-    /// Interaction logic for Uczestnictwo.xaml
-    /// </summary>
+
     public partial class Uczestnictwo : Window
     {
         public Uczestnictwo()
@@ -24,7 +22,7 @@ namespace Zawody_projekt
             InitializeComponent();
 
             TurniejEntities db = new TurniejEntities();
-
+            //Wyświetlanie tabeli
             var uczestnictwo = from d in db.uczestnictwoes
                                join id1 in db.zawodnicies on d.id_zawodnika equals id1.id_zawodnika 
                                join id2 in db.zawodies on d.id_zawodow equals id2.id_zawodow
@@ -87,6 +85,7 @@ namespace Zawody_projekt
                     //Czyszczenie pól
                     Text_IDZ.Clear();
                     Text_IDZa.Clear();
+                    ID_T.Clear();
                     //Aktualizacja tabeli
                     this.gridTrenerzy.ItemsSource = uczestnictwo.ToList();
                 }
@@ -137,6 +136,7 @@ namespace Zawody_projekt
                 //Czyszczenie pól
                 Text_IDZ.Clear();
                 Text_IDZa.Clear();
+                ID_T.Clear();
 
                 //Aktualizacja tabeli
                 var uczestnictwo = from d in db.uczestnictwoes
@@ -190,14 +190,15 @@ namespace Zawody_projekt
                     if (this.Text_IDZ.Text != "") obj.id_zawodow = Int32.Parse(this.Text_IDZ.Text);
                     if (this.Text_IDZa.Text != "") obj.id_zawodnika = Int32.Parse(this.Text_IDZa.Text);
                 }
+
                 //Czyszczenie textbox
                 Text_IDZ.Clear();
                 Text_IDZa.Clear();
-
-
+                ID_T.Clear();
 
                 db.SaveChanges();
 
+                //Aktualizacja wyświetlania tablicy
                 var uczestnictwo = from d in db.uczestnictwoes
                                    join id1 in db.zawodnicies on d.id_zawodnika equals id1.id_zawodnika
                                    join id2 in db.zawodies on d.id_zawodow equals id2.id_zawodow
@@ -211,6 +212,7 @@ namespace Zawody_projekt
 
                 this.gridTrenerzy.ItemsSource = uczestnictwo.ToList();
             }
+            //Obsługa błędów
             catch (NullReferenceException)
             {
                 MessageBox.Show("Nie ma takiego ID!");
