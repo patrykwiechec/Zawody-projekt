@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Zawody_projekt"
         mc:Ignorable="d"
         Title="Uczestnictwo"  Height="900" Width="1600"
-        WindowStyle="None"
-        WindowState="Maximized"
-        >
+        WindowStartupLocation = "CenterScreen"
+        WindowStyle="None">
+        
     <Grid>
         <!-- Sekcja odpowiedzialna za wyświetlanie tabeli -->
         <Grid.RowDefinitions>

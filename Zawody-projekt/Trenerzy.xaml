@@ -6,9 +6,8 @@
         xmlns:local="clr-namespace:Zawody_projekt.Properties"
         mc:Ignorable="d"
         Title="Trenerzy" Height="900" Width="1600"
-        WindowStyle="None"
-        WindowState="Maximized"
-        >
+        WindowStartupLocation = "CenterScreen"
+        WindowStyle="None">
     <Grid>
         <!-- Sekcja odpowiedzialna za wyświetlanie tabeli -->
         <Grid.RowDefinitions>
